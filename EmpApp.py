@@ -33,7 +33,7 @@ def about():
 
 @app.route("/addemp", methods=['POST'])
 def AddEmp():
-    emp_id = request.form['student_id']
+    student_id = request.form['student_id']
     first_name = request.form['first_name']
     last_name = request.form['last_name']
     pri_skill = request.form['pri_skill']
@@ -48,7 +48,7 @@ def AddEmp():
 
     try:
 
-        cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location))
+        cursor.execute(insert_sql, (student_id, first_name, last_name, pri_skill, location))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
         # Uplaod image file in S3 #
